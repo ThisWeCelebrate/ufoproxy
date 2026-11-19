@@ -1,0 +1,44 @@
+/* What a real page needs on top of the boards' look (site.css, Evolution 11's kit): the `.ph`
+   phone becomes the whole page and scrolls, its column is centred on a wide screen, and its
+   fields and buttons are real controls. Written by hand. */
+html,body{margin:0;padding:0;background:#0B0D10;-webkit-text-size-adjust:100%}
+.ph.site{width:100%;min-height:100vh;min-height:100dvh;overflow:hidden;overflow-wrap:anywhere}
+.ph.site .aurora{position:absolute;left:0;right:0;top:0;height:440px;overflow:hidden;pointer-events:none}
+.ph.site .aurora .sky{left:50%;right:auto;width:max(100%,412px);transform:translateX(-50%)}
+.ph.site .pg{height:auto;min-height:100vh;min-height:100dvh;max-width:520px;margin:0 auto;padding:max(16px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) env(safe-area-inset-bottom) max(20px,env(safe-area-inset-left))}
+.ph.site .foot{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:6px 0 28px}
+.ph.site .sfoot{margin-top:auto}
+.ph.site .scene{display:flex;justify-content:center;margin-top:12px}
+.ph.site .scene .artbox{display:flex;justify-content:center;height:210px;width:100%}
+.ph.site .scene .art3{height:100%;aspect-ratio:280/210}
+@media (min-width:640px){.ph.site .pg{padding-top:28px}}
+[hidden]{display:none!important}
+
+/* links in the texts */
+.ph.site .p a,.ph.site .lead a,.ph.site .art a{color:var(--t1);text-decoration:underline}
+
+/* `.fr` holds a real input */
+.ph.site label.fr{cursor:text}
+.ph.site .fr:focus-within{box-shadow:inset 0 0 0 1.5px var(--acc)}
+.ph.site .fr.bad,.ph.site .fr.bad:focus-within{box-shadow:inset 0 0 0 1.5px var(--bad)}
+.ph.site .kv2{flex:1 1 auto;min-width:0}
+.ph.site input.fld{display:block;width:100%;min-width:0;border:0;margin:2px 0 0;padding:0;background:transparent;color:var(--t1);font:500 16px/1.3 var(--fb);outline:none}
+.ph.site input.fld.mono{font-family:var(--fm);text-transform:uppercase;letter-spacing:.06em}
+.ph.site input.fld::placeholder{color:var(--t3);opacity:1}
+.ph.site p.err{margin-top:8px;color:var(--bad);font:500 13.5px/1.4 var(--fb)}
+
+/* `.cta`, `.btn2`, `.lnk` as buttons and links */
+.ph.site button.cta,.ph.site a.cta,.ph.site a.btn2{width:100%;text-decoration:none}
+.ph.site .lnk{text-decoration:none;cursor:pointer}
+.ph.site [disabled],.ph.site [aria-busy="true"]{opacity:.5;cursor:default;pointer-events:none}
+
+/* the language row of the legal pages */
+.ph.site nav.langs{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}
+.ph.site nav.langs a{font:500 12.5px var(--fb);padding:6px 12px;border-radius:999px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line);color:var(--t2);text-decoration:none}
+.ph.site nav.langs a[aria-current]{background:var(--acc);color:var(--acc-ink);box-shadow:none}
+
+/* `.art` lists (the app's policy texts have them; the boards show none) */
+.ph.site .art ul{margin:8px 0 0;padding-left:20px;color:var(--t2);font-size:15px;line-height:1.5}
+.ph.site .art li{margin:4px 0}
+
+@media (prefers-reduced-motion:reduce){.ph.site *,.ph.site *::before,.ph.site *::after{animation-play-state:paused!important;transition:none!important}}
